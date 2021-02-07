@@ -1,1 +1,72 @@
-<h1>DOM Play assignment goes here</h1>
+<html>
+
+<head>
+    <title>DOM Play</title>
+    <link rel="stylesheet" href="page-styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+
+    <style>
+        /* #clickSpans span { 
+            background-color: aqua; 
+        } */
+    </style>
+</head>
+
+<body>
+    <h1><span id="the">The</span><span id="three"> Three </span><span id="Fruits">Fruits</span></h1>
+    <div id="clickSpans">
+        <p><span data-actor="banana">Hello, my name is banana.</span></p>
+        <p><span data-actor="apple">Hi! My name is apple!</span></p>
+        <p><span data-actor="orange">Hola, my name is orange.</span></p>
+        <p><span data-actor="banana">How would you describe yourself?</span></p>
+        <p><span data-actor="apple">Well I am super red. Sometimes super green!</span></p>
+        <p><span data-actor="orange">Hmmm. I'm an orange. So I am super orangy!</span></p>
+        <p><span data-actor="apple">You look delicious! Not as delicious as me though! What about you banana?</span></p>
+        <p><span data-actor="banana">You guys are both unhealthy. Look at my yellow slender body. You guys are too
+                round.</span></p>
+        <p><span data-actor="orange">No fair! Don't blame genetics!</span></p>
+        <p><span data-actor="apple">Some like themselves rounder! Do not force your values onto me!</span></p>
+        <p><span data-actor="banana">I am merely stating the fact! Also, I am the most delicious out of the three of
+                us.</span></p>
+        <p><span data-actor="apple">Oh really now.</span></p>
+        <p><span data-actor="orange">You cannot decide that for yourself.</span></p>
+        <p><span data-actor="apple">Then it's decided. We are competing by interviewing the public.</span></p>
+        <p><span data-actor="banana">Don't come crying when I win.</span></p>
+        <p><span data-actor="orange">Tsk. Good luck.</span></p>
+        <p><span data-actor="apple">I know I'm going to win. See you losers.</span></p>
+
+    </div>
+    <script>
+        //spans is var so data is global 
+        var spans = document.querySelectorAll("#clickSpans span");
+        //console.log(spans); 
+        for (const mySpan of spans) {
+            mySpan.addEventListener("click", function (event) {
+                highlightActor(mySpan.dataset.actor);
+            });
+        }
+        function highlightActor(myActor) {
+            for (const mySpan of spans) {
+                if (mySpan.dataset.actor == myActor) {   // current actor? highlight 
+                    mySpan.style.backgroundColor = 'yellow';
+                    mySpan.style.fontWeight = 'bold';
+                } else {  //not current actor? change to white 
+                    mySpan.style.backgroundColor = 'white';
+                    mySpan.style.fontWeight = "normal";
+                }
+            }
+        }
+            /*
+function highlight(el){
+if(el.style.backgroundColor == 'yellow'){   //if yellow background, turn back to white
+el.style.backgroundColor = 'white';
+}else{  //not yellow, so turn to yellow
+el.style.backgroundColor = 'yellow';
+}
+} */
+
+    </script>
+</body>
+
+</html>
